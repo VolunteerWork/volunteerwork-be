@@ -1,6 +1,6 @@
 import { EMAIL_PASS, EMAIL_USER } from "../Config/index.js";
 import nodemailer from "nodemailer";
-import DateUtil from "../Utils/dateUtil.js";
+import DateUtil from "../Utils/DateUtil.js";
 
 class EmailService {
     constructor() {
