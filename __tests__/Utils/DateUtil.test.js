@@ -1,5 +1,4 @@
-import { jest } from "@jest/globals";
-import DateUtil from "../../Utils/dateUtil.js";
+import DateUtil from "../../Utils/DateUtil.js";
 
 describe("DateUtil tests", () => {
   it("test printDate function", () => {
