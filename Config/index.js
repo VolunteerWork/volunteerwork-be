@@ -6,7 +6,8 @@ config({ path: `.env` })
 export const { APP_PORT }=process.env;
 
 // Database
-export const { DB_HOST, DB_PORT,  DB_NAME, DB_USER, DB_PASS } = process.env;
+export const { DB_HOST, DB_PORT,  DB_NAME, 
+  DB_USER, DB_PASS, DB_IS_DOCUMENTDB } = process.env;
 
 // Security
 export const { JWT_SECRET_KEY, JWT_EXPIRATION }=process.env;

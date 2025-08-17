@@ -1,5 +1,5 @@
 # Define base image
-FROM node:18-slim AS base
+FROM node:18-alpine AS base
 
 # Set working directory
 WORKDIR /usr/src/app
@@ -14,12 +14,14 @@ FROM base AS build
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 COPY . .
 
-# Expose the port your app runs on
-EXPOSE 8080
-
-# Run as a non-root user for security
-RUN useradd -m appuser
+# Create non-root user
+RUN addgroup -S appgroup 
+RUN adduser -S appuser -G appgroup
 USER appuser
+
+# Expose the port your app runs on
+ENV APP_PORT=8080
+EXPOSE 8080
 
 # Start the app
 CMD ["npm", "run", "start"]
