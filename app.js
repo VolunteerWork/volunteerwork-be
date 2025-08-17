@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { connectDatabase } from "./Config/DBConfig.js";
-import { FRONTEND_ORIGIN, PORT } from "./Config/index.js";
+import { FRONTEND_ORIGINS, APP_PORT } from "./Config/index.js";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import AuthRouter from "./Routers/AuthRouter.js";
@@ -22,7 +22,7 @@ connectDatabase();
 SchedulerService.loadScheduledEvents();
 
 app.use(cors({
-          origin: [FRONTEND_ORIGIN],
+          origin: [FRONTEND_ORIGINS],
           credentials: true,
 }));
 app.use(compression());
@@ -40,6 +40,6 @@ app.use("/api/gift",GiftRouter);
 
 app.use(ErrorMiddleware);
 
-app.listen(PORT, ()=>{
+app.listen(APP_PORT, ()=>{
           console.log("Server is opened");
 })

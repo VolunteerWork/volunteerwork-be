@@ -1,14 +1,14 @@
 import { v2 as cloudinary } from 'cloudinary';
-import { API_KEY, API_SECRET, CLOUDINARY_URL, CLOUD_NAME } from '../Config/index.js';
+import { CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, CLOUDINARY_NAME, CLOUDINARY_URL } from '../Config/index.js';
 import RequestError from '../Errors/RequestError.js';
 
 class CloudinaryService {
   constructor() {
     cloudinary.config({
       cloudinary_url: CLOUDINARY_URL,
-      cloud_name: CLOUD_NAME,
-      api_key: API_KEY,
-      api_secret: API_SECRET,
+      cloud_name: CLOUDINARY_NAME,
+      api_key: CLOUDINARY_API_KEY,
+      api_secret: CLOUDINARY_API_SECRET,
       secure: true,
     });
   }

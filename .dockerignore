@@ -1,3 +1,6 @@
 node_modules/
 .deployment
 .github/
+.git
+__tests__
+*.env
