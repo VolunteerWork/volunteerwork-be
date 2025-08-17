@@ -6,7 +6,7 @@ import Event from "../Models/Event.js";
 import Question from "../Models/Question.js";
 import SchedulerService from "./SchedulerService.js";
 import createTransaction from "../Utils/Transaction.js";
-import DateUtil from "../Utils/dateUtil.js";
+import DateUtil from "../Utils/DateUtil.js";
 
 class VolunteerService {
     async addVolunteerWork(org, jsonData, file) {

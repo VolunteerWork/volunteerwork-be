@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
-import { SECRET_KEY } from "../Config/index.js";
 import AuthError from "../Errors/AuthError.js";
 import Account from "../Models/Account.js";
 import { TokenBearer } from "../Utils/Constraints.js";
+import { JWT_SECRET_KEY } from "../Config/index.js";
 
 export async function getAccountFromToken(req) {
   const rawToken = req.headers["authorization"];
@@ -12,7 +12,7 @@ export async function getAccountFromToken(req) {
 
   const token = rawToken.substring(7);
 
-  const accountId = jwt.verify(token, SECRET_KEY);
+  const accountId = jwt.verify(token, JWT_SECRET_KEY);
   return await Account.findById(accountId);
 }
 

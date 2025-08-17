@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
-import { DB_URL } from "./index.js";
+import { DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER } from "./index.js";
 
 export async function connectDatabase() {
           try {
-              await mongoose.connect(DB_URL, {
+              var dbUrl = `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`;
+              await mongoose.connect(dbUrl, {
                 useNewUrlParser: true,
                 serverSelectionTimeoutMS: 5000
               });

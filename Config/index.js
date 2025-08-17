@@ -1,15 +1,22 @@
 import { config } from 'dotenv'
 
 config({ path: `.env` })
+
 // Server
-export const {PORT, HOSTNAME}=process.env;
+export const { APP_PORT }=process.env;
+
 // Database
-export const {DB_URL}=process.env;
+export const { DB_HOST, DB_PORT,  DB_NAME, DB_USER, DB_PASS } = process.env;
+
 // Security
-export const {SECRET_KEY,EXPIRATION}=process.env;
+export const { JWT_SECRET_KEY, JWT_EXPIRATION }=process.env;
+
 // Email
-export const {EMAIL_USER, EMAIL_PASS}=process.env;
+export const { EMAIL_USER, EMAIL_PASS } = process.env;
+
 // Cloudinary
-export const { API_KEY, API_SECRET, CLOUDINARY_URL, CLOUD_NAME }=process.env;
+export const { CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, 
+  CLOUDINARY_URL, CLOUDINARY_NAME }=process.env;
+
 // Frontend
-export const {FRONTEND_ORIGIN}=process.env;
+export const FRONTEND_ORIGINS = process.env.FRONTEND_ORIGINS || "";
