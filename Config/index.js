@@ -3,14 +3,19 @@ import { config } from 'dotenv'
 config({ path: `.env` })
 
 // Server
-export const { APP_PORT }=process.env;
+export const APP_PORT = parseInt(process.env.APP_PORT) || 8080;
 
 // Database
-export const { DB_HOST, DB_PORT,  DB_NAME, 
-  DB_USER, DB_PASS, DB_IS_DOCUMENTDB } = process.env;
+export const DB_HOST = process.env.DB_HOST;
+export const DB_PORT = parseInt(process.env.DB_PORT);
+export const DB_NAME = process.env.DB_NAME;
+export const DB_USER = process.env.DB_USER;
+export const DB_PASS = process.env.DB_PASS;
+export const DB_IS_DOCUMENTDB = (process.env.DB_IS_DOCUMENTDB === "true");
 
 // Security
-export const { JWT_SECRET_KEY, JWT_EXPIRATION }=process.env;
+export const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
+export const JWT_EXPIRATION = parseInt(process.env.JWT_EXPIRATION) || 604800;
 
 // Email
 export const { EMAIL_USER, EMAIL_PASS } = process.env;
