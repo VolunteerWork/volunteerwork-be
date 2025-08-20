@@ -19,7 +19,7 @@ jobs:
   build_and_publish:
     runs-on: ubuntu-latest
     outputs:
-      image_ref: ${{ steps.export-image-ref.outputs.image_ref }}
+      image_ref: ${{ steps.export_image_ref.outputs.image_ref }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -62,7 +62,7 @@ jobs:
         with:
           task-definition: task-definition.json
           container-name: ${{ env.ECS_CONTAINER_NAME }}
-          image: ${{ needs.build_and_publish.steps.export_image_ref.outputs.image_ref }}
+          image: ${{ needs.build_and_publish.outputs.image_ref }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
