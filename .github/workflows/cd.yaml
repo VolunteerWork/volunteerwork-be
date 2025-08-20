@@ -7,6 +7,7 @@ on:
 
 env:
   IMAGE_NAME: "hungtran679/volunteerwork-backend"
+  DOCKERHUB_USERNAME: "hungtran679"
 
   ECS_CLUSTER: "volunteerwork-prod-ecs-cluster"
   ECS_TASK_DEFINITION_FAMILY: "volunteerwork-prod-backend-family"
@@ -27,7 +28,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          username: ${{ env.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Export Image Ref
