@@ -18,7 +18,7 @@ export async function connectDatabase() {
       serverSelectionTimeoutMS: 5000,
     };
     console.log("DB_IS_DOCUMENTDB", DB_IS_DOCUMENTDB)
-    if (DB_IS_DOCUMENTDB === "true") {
+    if (DB_IS_DOCUMENTDB) {
       options.tls = true;
       options.tlsCAFile = getDocumentDBCAPath();
     }
